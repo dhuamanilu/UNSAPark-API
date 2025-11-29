@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
+import { initMQTT } from './services/mqttService';
 
 // Importar rutas
 import authRoutes from './routes/authRoutes';
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Conectar BD
 connectDB();
+initMQTT();
 
 // Middlewares
 app.use(cors()); 
