@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
 import connectDB from './config/db';
+import historyRoutes from './routes/historyRoutes';
 import { initMQTT } from './services/mqttService';
 
 // Importar rutas
@@ -30,6 +31,7 @@ app.use('/api/admin', adminRoutes); // <--- AGREGAR ESTA LÍNEA
 app.get('/', (req: Request, res: Response) => {
   res.send('🚀 UNSAPark API v1.0 funcionando correctamente');
 });
+app.use('/api/history', historyRoutes);
 
 // Iniciar
 app.listen(PORT, () => {
