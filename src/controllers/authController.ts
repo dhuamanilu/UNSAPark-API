@@ -119,7 +119,9 @@ export const login = async (req: Request, res: Response): Promise<void> => {
             email: user.email,
             role: user.role,
             status: user.statusSolicitud, // Importante para saber si está Aprobado
-            vehiculo: user.vehiculo
+            vehiculo: user.vehiculo,
+            dni: user.dni, 
+            datosPersonales: user.datosPersonales
           }
         });
       }
